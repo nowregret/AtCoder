@@ -10,15 +10,18 @@ class Main {
 
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-			int aokiNumber = Integer.parseInt(br.readLine());
-			int takahashiNumber = Integer.parseInt(br.readLine());
-			int conditionNumber = Integer.parseInt(br.readLine());
-			int result = conditionNumber;
-
-			for(int i = conditionNumber; !(i % aokiNumber == 0 && i % takahashiNumber == 0); i++) {
-				result = i + 1;
-			}
-
+			int firstDigit = Character.getNumericValue((char) br.read());
+			int twoDigit = Character.getNumericValue((char) br.read());
+			int threeDigit = Character.getNumericValue((char) br.read());
+			int fourDigit = Character.getNumericValue((char) br.read());
+			
+			String result = firstDigit == twoDigit
+						 && firstDigit == threeDigit
+						 && firstDigit == fourDigit
+						 && twoDigit   == threeDigit
+						 && twoDigit   == fourDigit
+						 && threeDigit == fourDigit ? "SAME" : "DIFFERENT";
+			
 			System.out.println(result);
 
 		} catch (IOException | NumberFormatException e) {
