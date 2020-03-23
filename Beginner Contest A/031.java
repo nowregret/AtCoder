@@ -8,24 +8,27 @@ import java.util.stream.Collectors;
 class Main {
 
 	public static void main(String[] args) throws Exception {
-		 
+
 		try {
- 
+
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
- 
+
 			String[] inputString = br.readLine().split("\\s+");
- 
-			List<Double> map = Arrays.asList(inputString)
+
+			List<Integer> map = Arrays.asList(inputString)
 					.stream()
-					.map(s -> Double.parseDouble(s))
+					.map(s -> Integer.parseInt(s))
 					.collect(Collectors.toList());
-			
-			double takahashiWinRate = map.get(1) / map.get(0);
-			double aokiWinRate = map.get(3) / map.get(2);
-			
-			String result = takahashiWinRate == aokiWinRate ? "DRAW"
-							: takahashiWinRate > aokiWinRate ? "TAKAHASHI"
-							: "AOKI";
+
+			int attack = map.get(0);
+			int defense = map.get(1);
+
+			int ifAttackUpProduct = (attack + 1) *  defense;
+			int ifDefenseUpProduct = (defense + 1) *  attack;
+
+			int result = ifAttackUpProduct == ifDefenseUpProduct ? ifAttackUpProduct
+					: ifAttackUpProduct > ifDefenseUpProduct ? ifAttackUpProduct
+					: ifDefenseUpProduct;
 
 			System.out.println(result);
 			
