@@ -12,14 +12,14 @@ class Main {
 
       int score = Integer.parseInt(br.readLine());
 
-      if (score == 100) {
-        System.out.println("Perfect");
-      } else if (score <= 99) {
-        System.out.println("Great");
+      if (score <= 59) {
+        System.out.println("Bad");
       } else if (score <= 89) {
         System.out.println("Good");
-      } else if (score <= 59) {
-        System.out.println("Bad");
+      } else if (score <= 99) {
+        System.out.println("Great");
+      } else if (score == 100) {
+        System.out.println("Perfect");
       }
 
     } catch (IOException | NumberFormatException e) {
