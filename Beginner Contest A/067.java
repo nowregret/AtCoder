@@ -12,14 +12,12 @@ class Main {
 
             String[] inputCookiesCount = br.readLine().split(" ");
 
-            int cookiesCount = 0;
-            for (int i = 0; i < inputCookiesCount.length; i++) {
-                cookiesCount += Integer.parseInt(inputCookiesCount[i]);
-            }
+            int cookieCountA = Integer.parseInt(inputCookiesCount[0]);
+            int cookieCountB = Integer.parseInt(inputCookiesCount[1]);
 
             String sharingIs = "Impossible";
 
-            if (cookiesCount % 3 == 0) {
+            if (cookieCountA % 3 == 0 || cookieCountB % 3 == 0 || (cookieCountA + cookieCountB) % 3 == 0) {
                 sharingIs = "Possible";
             }
 
