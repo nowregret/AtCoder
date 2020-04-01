@@ -10,14 +10,19 @@ class Main {
 
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-            String inputString = br.readLine();
+            String[] inputString = br.readLine().split(" ");
 
-            String isPalindromicNumber = "No";
-            if (inputString.charAt(0) == inputString.charAt(2)) {
-                isPalindromicNumber = "Yes";
-            }
+            int locationX = Integer.parseInt(inputString[0]);
+            int locationOfRestaurantA = Integer.parseInt(inputString[1]);
+            int locationOfRestaurantB = Integer.parseInt(inputString[2]);
 
-            System.out.println(isPalindromicNumber);
+            int distanceAtoX = getDistanceXtoRestaurant(locationX, locationOfRestaurantA);
+            int distanceBtoX = getDistanceXtoRestaurant(locationX, locationOfRestaurantB);
+
+            String closerRestaurantIs = distanceAtoX >= distanceBtoX ? "B" : "A";
+
+            System.out.println(closerRestaurantIs);
+
         } catch (IOException | NumberFormatException e) {
             e.printStackTrace();
             System.exit(0);
@@ -25,5 +30,9 @@ class Main {
             e.printStackTrace();
             System.exit(0);
         }
+    }
+
+    private static int getDistanceXtoRestaurant(int locationX, int locationOfRestaurant) {
+        return locationX >= locationOfRestaurant ? locationX - locationOfRestaurant : locationOfRestaurant - locationX;
     }
 }
