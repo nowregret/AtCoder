@@ -10,14 +10,10 @@ class Main {
 
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-            String inputString = br.readLine();
+            int cellsCount = (int) Math.pow(Double.parseDouble(br.readLine()), 2);
+            int blackCellsCount = cellsCount - Integer.parseInt(br.readLine());
 
-            String isContainNine = "No";
-            if (inputString.charAt(0) == '9' || inputString.charAt(1) == '9') {
-                isContainNine = "Yes";
-            }
-
-            System.out.println(isContainNine);
+            System.out.println(blackCellsCount);
 
         } catch (IOException | NumberFormatException e) {
             e.printStackTrace();
