@@ -13,6 +13,7 @@ class Main {
             int nowHour = Integer.parseInt(br.readLine());
             int needToNewYear = 48 - nowHour;
 
+            // 結果出力
             System.out.println(needToNewYear);
         } catch (IOException | NumberFormatException e) {
             e.printStackTrace();
